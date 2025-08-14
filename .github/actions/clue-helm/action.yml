@@ -10,7 +10,7 @@ inputs:
   chart-ref:
     description: OCI reference to the Helm chart, please set to '' /empty if using local chart path
     required: false
-    default: oci://ghcr.io/clue2-sose25/clue2-helm/clue:latest
+    default: oci://ghcr.io/julianlegler/clue2-helm/clue:latest
   chart-path:
     description: Path to the Helm chart if not using chart-ref
     required: false

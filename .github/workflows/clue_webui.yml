@@ -44,10 +44,10 @@ jobs:
           file: ./clue_webui/Dockerfile
           platforms: linux/amd64
           tags: |
-            ghcr.io/clue2-sose25/clue2-${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.short_sha }}
-            ghcr.io/clue2-sose25/clue2-${{ env.IMAGE_NAME }}:${{ github.ref_name }}
-            ghcr.io/clue2-sose25/clue2-${{ env.IMAGE_NAME }}:pr-test
-            ${{ github.ref_name == 'main' && format('ghcr.io/clue2-sose25/clue2-{0}:latest', env.IMAGE_NAME) || '' }}
+            ghcr.io/julianlegler/clue2-${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.short_sha }}
+            ghcr.io/julianlegler/clue2-${{ env.IMAGE_NAME }}:${{ github.ref_name }}
+            ghcr.io/julianlegler/clue2-${{ env.IMAGE_NAME }}:pr-test
+            ${{ github.ref_name == 'main' && format('ghcr.io/julianlegler/clue2-{0}:latest', env.IMAGE_NAME) || '' }}
           push: true
           cache-from: type=gha,scope=clue_webui
           cache-to: type=gha,scope=clue_webui,mode=max
@@ -58,7 +58,7 @@ jobs:
           context: ./clue_webui
           file: ./clue_webui/Dockerfile
           platforms: linux/amd64
-          tags: ghcr.io/clue2-sose25/clue2-${{ env.IMAGE_NAME }}:pr-test
+          tags: ghcr.io/julianlegler/clue2-${{ env.IMAGE_NAME }}:pr-test
           push: true
           load: true
           cache-from: type=gha,scope=clue_webui
@@ -71,7 +71,7 @@ jobs:
             -p 5001:80 \
             -e NGINX_RESOLVER=localhost \
             -e NGINX_RESOLVER_VALID=20s \
-            ghcr.io/clue2-sose25/clue2-webui:pr-test
+            ghcr.io/julianlegler/clue2-webui:pr-test
           # Wait for the container to start
           sleep 8
           curl -fs http://localhost:5001/ | grep -q "Clue Dashboard" && echo "Web UI Up and running"

@@ -38,4 +38,4 @@ jobs:
       - name: Push chart
         run: |
           CHART_VERSION=0.1.0-${SHORT_SHA}
-          helm push clue-$CHART_VERSION.tgz oci://ghcr.io/clue2-sose25/clue2-${IMAGE_NAME}
+          helm push clue-$CHART_VERSION.tgz oci://ghcr.io/julianlegler/clue2-${IMAGE_NAME}

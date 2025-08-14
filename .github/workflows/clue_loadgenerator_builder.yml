@@ -50,10 +50,10 @@ jobs:
           file: clue_loadgenerator/Dockerfile
           platforms: linux/amd64
           tags: |
-            ghcr.io/clue2-sose25/clue2-${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.short_sha }}
-            ghcr.io/clue2-sose25/clue2-${{ env.IMAGE_NAME }}:${{ github.ref_name }}
-            ghcr.io/clue2-sose25/clue2-${{ env.IMAGE_NAME }}:pr-test
-            ${{ github.ref_name == 'main' && format('ghcr.io/clue2-sose25/clue2-{0}:latest', env.IMAGE_NAME) || '' }}
+            ghcr.io/julianlegler/clue2-${{ env.IMAGE_NAME }}:${{ steps.vars.outputs.short_sha }}
+            ghcr.io/julianlegler/clue2-${{ env.IMAGE_NAME }}:${{ github.ref_name }}
+            ghcr.io/julianlegler/clue2-${{ env.IMAGE_NAME }}:pr-test
+            ${{ github.ref_name == 'main' && format('ghcr.io/julianlegler/clue2-{0}:latest', env.IMAGE_NAME) || '' }}
           push: true
           cache-from: type=gha,scope=clue_loadgenerator
           cache-to: type=gha,scope=clue_loadgenerator,mode=max
@@ -65,7 +65,7 @@ jobs:
           context: .
           file: clue_loadgenerator/Dockerfile
           platforms: linux/amd64
-          tags: ghcr.io/clue2-sose25/clue2-${{ env.IMAGE_NAME }}:pr-test
+          tags: ghcr.io/julianlegler/clue2-${{ env.IMAGE_NAME }}:pr-test
           push: true
           load: true
           cache-from: type=gha,scope=clue_loadgenerator
