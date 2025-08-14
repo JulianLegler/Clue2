@@ -32,7 +32,7 @@ services:
 
   # The main CLUE deployer
   clue-deployer:
-    image: ghcr.io/clue2-sose25/clue2/clue-deployer:latest
+    image: ghcr.io/julianlegler/clue2/clue-deployer:latest
     build:
       context: .
       dockerfile: ./clue_deployer/Dockerfile
