@@ -126,6 +126,7 @@ class ResourceTracker:
                     "node_network_receive_bytes_total", "node_network_transmit_bytes_total", "container_cpu_usage_seconds_total", "container_memory_working_set_bytes"}
         
         if not required.issubset(available):
+            logger.error(f"Prometheus does not provide the required metrics. Available metrics: {available}")
             raise ValueError("Prometheus does not provide the required metrics.")
 
         #check if prometheus is managing a kubernetes cluster on container or node level
@@ -287,6 +288,7 @@ class ResourceTracker:
         """
         Query Prometheus for the current resource usage of pods. Assuming kepler and scaphandre are availible as well as kube metrics.
         """
+        logger.info(f"Querying pods in namespace {namespace}")
         kepler_consumtion = f'sum by (pod_name, node) (irate(kepler_container_package_joules_total{{container_namespace="{namespace}"}}[1m])) + sum by (pod_name, node)  (irate(kepler_container_core_joules_total{{container_namespace="{namespace}"}}[1m])) + sum by (pod_name, node)  (irate(kepler_container_dram_joules_total{{container_namespace="{namespace}"}}[1m]))'#f'sum by (pod_name, node) (irate(kepler_container_joules_total{{container_namespace="{namespace}"}}[1m]))'
         scraphandre_consumtion = f'sum by (container_id, node) (scaph_process_power_consumption_microwatts/1e6)'
         
