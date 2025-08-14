@@ -224,8 +224,8 @@ clueConfig: |
     docker_registry_address: "ghcr.io/clue2-sose25"
     local_public_ip: "registry"
     local_port: 5000
-    remote_platform_arch: "linux/arm64/v8"
-    local_platform_arch: "linux/arm64/v8"
+    remote_platform_arch: "linux/amd64"
+    local_platform_arch: "linux/amd64"
     target_utilization: 70
 clueDeployer:
   enabled: true

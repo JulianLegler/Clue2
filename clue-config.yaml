@@ -10,7 +10,7 @@ config:
   # The public port for the workload generator
   local_port: 5000
   # The Platform specification
-  remote_platform_arch: "linux/arm64/v8"
-  local_platform_arch: "linux/arm64/v8"
+  remote_platform_arch: "linux/amd64"
+  local_platform_arch: "linux/amd64"
   ### AUTOSCALING ###
   target_utilization: 70

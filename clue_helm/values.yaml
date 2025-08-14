@@ -9,12 +9,12 @@ sutNamespace: ""
 clueConfig: |
   config:
     experiment_timeout: 150
-    prometheus_url: "http://clue-cluster-control-plane:30090"
+    prometheus_url: "http://clue-kps-kube-prometheus-s-prometheus.clue-prereqs.svc.cluster.local:9090"
     docker_registry_address: "registry:5000/clue"
     local_public_ip: "registry"
     local_port: 5000
-    remote_platform_arch: "linux/arm64/v8"
-    local_platform_arch: "linux/arm64/v8"
+    remote_platform_arch: "linux/amd64"
+    local_platform_arch: "linux/amd64"
     target_utilization: 70
 clueDeployer:
   enabled: true
@@ -46,12 +46,12 @@ clueDeployer:
     N_ITERATIONS: "1"
     ENABLE_DEBUG: "false"
     PRECONFIGURE_CLUSTER: "false"
-    PROMETHEUS_URL: http://130.149.158.32:32426
+    PROMETHEUS_URL: http://clue-kps-kube-prometheus-s-prometheus.clue-prereqs.svc.cluster.local:9090
     SETUP_GRAFANA_DASHBOARD: "false"
-    GRAFANA_URL: http://10.111.147.11
+    GRAFANA_URL: http://clue-kps-grafana.clue-prereqs.svc.cluster.local
     GRAFANA_PORT: 80
     GRAFANA_USERNAME: admin
-    GRAFANA_PASSWORD: SECRET
+    GRAFANA_PASSWORD: prom-operator
     # Set to "true" if you want to preconfigure the cluster before deploying the SUT.
     # This is useful for SUTs that require specific configurations before deployment like installing premetheus and kapler
     HELM_DRIVER: configmap
