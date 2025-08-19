@@ -122,7 +122,7 @@ class ResourceTracker:
         available = set(self.prm.all_metrics())
 
         #check node_exporter metrics - cpu/memory
-        required = {"node_memory_MemFree_bytes", "node_memory_MemTotal_bytes", "node_cpu_seconds_total","node_memory_Cached_bytes", "kepler_container_joules_total", 
+        required = {"node_memory_MemFree_bytes", "node_memory_MemTotal_bytes", "node_cpu_seconds_total","node_memory_Cached_bytes", 
                     "node_network_receive_bytes_total", "node_network_transmit_bytes_total", "container_cpu_usage_seconds_total", "container_memory_working_set_bytes"}
         
         if not required.issubset(available):
