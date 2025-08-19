@@ -289,7 +289,7 @@ class WorkloadRunner:
                     ],
                     volumes=locust_volumes,
                     # Run this on a different node
-                    affinity=affinity,
+                    #affinity=affinity,
                     restart_policy="Never",
                 ),
             ),
