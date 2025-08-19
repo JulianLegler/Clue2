@@ -81,6 +81,7 @@ clueConfig: |
     target_utilization: 70
 clueDeployer:
   enabled: true
+  registry: ghcr.io/julianlegler
   image: clue2-deployer
   tag: latest
   serviceAccountName: clue-deployer

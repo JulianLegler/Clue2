@@ -18,6 +18,9 @@ clueConfig: |
     target_utilization: 70
 clueDeployer:
   enabled: true
+  # Optional: Override the global image registry for clue-deployer
+  # If not set, will use the global imageRegistry value
+  # registry: "your-custom-registry.com"
   image: "clue2-deployer"
   tag: "latest"
   serviceAccountName: clue-deployer
