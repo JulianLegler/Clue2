@@ -127,6 +127,11 @@ class ResourceTracker:
         
         if not required.issubset(available):
             logger.error(f"Prometheus does not provide the required metrics. Available metrics: {available}")
+
+            for metric in required:
+                if metric not in available:
+                    logger.error(f"Missing metric: {metric}")
+
             raise ValueError("Prometheus does not provide the required metrics.")
 
         #check if prometheus is managing a kubernetes cluster on container or node level
